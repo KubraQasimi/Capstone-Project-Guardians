@@ -167,10 +167,10 @@ public class RetailAccountSteps extends CommonUtility {
 		logger.info("Add address button clicked successfully");
 	}
 
-	@Then("address message should be displayed 'Address Added Successfully'")
-	public void addressMessageShouldBeDisplayedAddressAddedSuccessfully() {
+	@Then("address message should be displayed {string}")
+	public void addressMessageShouldBeDisplayed(String message) {
 		waitTillPresence(factory.retailAccountPage().addAddressSuccessMsg);
-		Assert.assertTrue(factory.retailAccountPage().addAddressSuccessMsg.isDisplayed());
+		Assert.assertEquals(message,factory.retailAccountPage().addAddressSuccessMsg.getText());
 		logger.info("Address Added Successfully message displayed");
 	}
 
@@ -212,10 +212,10 @@ public class RetailAccountSteps extends CommonUtility {
 		logger.info("update address button clicked successfully");
 	}
 
-	@And("update address message should be displayed 'Address Updated Successfully'")
-	public void updateAddressMessageShouldBeDisplayed() {
+	@And("update address message should be displayed {string}")
+	public void updateAddressMessageShouldBeDisplayed(String message) {
 		waitTillPresence(factory.retailAccountPage().addressUpdateSuccessMsg);
-		Assert.assertTrue(factory.retailAccountPage().addressUpdateSuccessMsg.isDisplayed());
+		Assert.assertEquals(message,factory.retailAccountPage().addressUpdateSuccessMsg.getText());
 		logger.info("update address message displayed");
 	}
 

@@ -126,9 +126,9 @@ public class RetailOrderSteps extends CommonUtility {
 	}
 
 	@Then("a confirmation message should be displayed {string}") 
-	public void aConfirmationMessageShouldBeDisplayed(String string) {
+	public void aConfirmationMessageShouldBeDisplayed(String message) {
 		waitTillPresence(factory.retailOrderPage().orderPlacedSuccessMsg);
-		Assert.assertTrue(factory.retailOrderPage().orderPlacedSuccessMsg.isDisplayed());
+		Assert.assertEquals(message,factory.retailOrderPage().orderPlacedSuccessMsg.getText());
 		logger.info("confirmation Message displayed");
 	}
 
@@ -157,10 +157,10 @@ public class RetailOrderSteps extends CommonUtility {
 		logger.info("cancel order button clicked");
 	}
 
-	@And("User select the cancelation Reason 'Bought wrong item'")
-	public void userSelectTheCancelationReason() {
+	@And("User select the cancelation Reason {string}")
+	public void userSelectTheCancelationReason(String reason) {
 		clickElementWithJS(factory.retailOrderPage().cancelationReason);
-		selectByIndex(factory.retailOrderPage().cancelationReason, 1);
+		selectByVisibleText(factory.retailOrderPage().cancelationReason, reason);
 		logger.info("cancelation reason selected");
 	}
 
@@ -216,7 +216,7 @@ public class RetailOrderSteps extends CommonUtility {
 
 	@Then("the cancelation message should be displayed {string}")
 	public void theCancelationMessageShouldBeDisplayed(String message) {
-		Assert.assertTrue(factory.retailOrderPage().orderReturnSuccessMsg.isDisplayed());
+		Assert.assertEquals(message,factory.retailOrderPage().orderReturnSuccessMsg.isDisplayed());
 		logger.info("Return message was displayed successfuly");
 	}
 
@@ -259,7 +259,7 @@ public class RetailOrderSteps extends CommonUtility {
 	public void aReviewMessageShouldBeDisplayed(String message) {
 		message = "Your review was added successfully"; 
 		waitTillPresence(factory.retailOrderPage().reviewAddedSuccessMsg);
-		Assert.assertTrue(factory.retailOrderPage().reviewAddedSuccessMsg.isDisplayed());
+		Assert.assertEquals(message,factory.retailOrderPage().reviewAddedSuccessMsg.isDisplayed());
 		logger.info("Review success message displayed");
 	}
 
