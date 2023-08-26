@@ -30,7 +30,7 @@ Feature: Retail Order Page
     And User click on Cart option
     And User click on Proceed to Checkout button
     And User click on Place Your Order
-    Then a confirmation message should be displayed 'Order Placed, Thanks'
+    Then a confirmation message should be displayed 'Order Placed Successfully'
 
   @orderCancellation
   Scenario: Verify User can cancel the order

@@ -30,7 +30,7 @@
 		<dependency>
 			<groupId>io.github.bonigarcia</groupId>
 			<artifactId>webdrivermanager</artifactId>
-			<version>5.4.1</version>
+			<version>5.5.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.poi</groupId>
@@ -91,11 +91,6 @@
 	</dependencies>
 	<build>
 		<plugins>
-
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.7.0</version>
-			</plugin>
 
 			<plugin>
 				<artifactId>maven-surefire-plugin</artifactId>

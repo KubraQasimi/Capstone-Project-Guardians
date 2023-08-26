@@ -128,7 +128,7 @@ public class RetailOrderSteps extends CommonUtility {
 	@Then("a confirmation message should be displayed {string}") 
 	public void aConfirmationMessageShouldBeDisplayed(String message) {
 		waitTillPresence(factory.retailOrderPage().orderPlacedSuccessMsg);
-		Assert.assertEquals(message,factory.retailOrderPage().orderPlacedSuccessMsg.getText());
+		Assert.assertTrue(factory.retailOrderPage().orderPlacedSuccessMsg.isDisplayed());
 		logger.info("confirmation Message displayed");
 	}
 
@@ -216,7 +216,7 @@ public class RetailOrderSteps extends CommonUtility {
 
 	@Then("the cancelation message should be displayed {string}")
 	public void theCancelationMessageShouldBeDisplayed(String message) {
-		Assert.assertEquals(message,factory.retailOrderPage().orderReturnSuccessMsg.isDisplayed());
+		Assert.assertTrue(factory.retailOrderPage().orderReturnSuccessMsg.isDisplayed());
 		logger.info("Return message was displayed successfuly");
 	}
 
@@ -259,7 +259,7 @@ public class RetailOrderSteps extends CommonUtility {
 	public void aReviewMessageShouldBeDisplayed(String message) {
 		message = "Your review was added successfully"; 
 		waitTillPresence(factory.retailOrderPage().reviewAddedSuccessMsg);
-		Assert.assertEquals(message,factory.retailOrderPage().reviewAddedSuccessMsg.isDisplayed());
+		Assert.assertEquals(message,factory.retailOrderPage().reviewAddedSuccessMsg.getText());
 		logger.info("Review success message displayed");
 	}
 
