@@ -27,7 +27,7 @@ public class DataGenerator {
 	 }
 	 public static String getZipCode() {
 		 String zipcode ="";
-		 for (int i =0; i<5; i++) {
+		 for (int i =0; i<6; i++) {
 			 zipcode += (int)(Math.random()*10);
 		 }
 		 return zipcode;

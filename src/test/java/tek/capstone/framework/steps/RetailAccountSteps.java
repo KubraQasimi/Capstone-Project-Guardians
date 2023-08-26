@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.junit.Assert;
+import org.openqa.selenium.By;
 
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;

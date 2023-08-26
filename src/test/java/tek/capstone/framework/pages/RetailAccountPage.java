@@ -99,7 +99,9 @@ public class RetailAccountPage extends BaseSetup {
 	public WebElement addressUpdateSuccessMsg;
 
 //remove address
-	@FindBy(xpath = "//button[text()='Remove']")
+	@FindBy(xpath="//div[@class='account__address-single'][1]")
+	public WebElement firstAddressBox;
+	@FindBy(xpath= "//div[@class='account__address-single']//button[text()='Remove']")
 	public WebElement RemoveAddressBtn;
 	@FindBy(xpath = "//div[@class='account__address-single']")
 	public WebElement addressBox;
