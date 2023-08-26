@@ -170,7 +170,7 @@ public class RetailAccountSteps extends CommonUtility {
 	@Then("address message should be displayed {string}")
 	public void addressMessageShouldBeDisplayed(String message) {
 		waitTillPresence(factory.retailAccountPage().addAddressSuccessMsg);
-		Assert.assertEquals(message,factory.retailAccountPage().addAddressSuccessMsg.getText());
+		Assert.assertEquals(message,factory.retailAccountPage().addAddressSuccessMsg);
 		logger.info("Address Added Successfully message displayed");
 	}
 
