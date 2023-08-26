@@ -1,4 +1,4 @@
-@regression
+@Smoke
 Feature: Sign in Feature
 
   Background: User is on retail website
