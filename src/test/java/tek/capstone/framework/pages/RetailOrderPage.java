@@ -1,5 +1,7 @@
 package tek.capstone.framework.pages;
 
+import java.util.List;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -40,6 +42,8 @@ public class RetailOrderPage extends BaseSetup{
 	@FindBy(xpath="//select[@id='reasonInput']//option[@value='damage']") public WebElement itemDamageOption;
 	@FindBy(xpath="//button[@id='orderSubmitBtn']") public WebElement cancelOrder;
 	@FindBy(xpath="//div[@class='cancel__confirm-message']") public WebElement orderCancelationMsg;
+	@FindBy(xpath = "//div[@class='order']//descendant::p[7]")
+    public List<WebElement> listOfOrders;
 	
 //return order	
 	@FindBy (xpath="//p[@class='order__header-btn' and text()='Show Details']")

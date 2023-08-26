@@ -2,8 +2,11 @@ package tek.capstone.framework.steps;
 
 import tek.capstone.framework.utilities.CommonUtility;
 
+import java.util.List;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 import io.cucumber.java.en.*;
 import tek.capstone.framework.pages.PoMFactory;
@@ -138,7 +141,13 @@ public class RetailOrderSteps extends CommonUtility {
 
 	@And("User click on first order in list")
 	public void userClickOnFirstOrderInList() {
-		click(factory.retailOrderPage().ItemsShowDetails);
+		List<WebElement> listOfOrders = factory.retailOrderPage().listOfOrders;
+	         for(int i = 0; i < listOfOrders.size(); i++) {
+	             if(listOfOrders.get(i).getText().equalsIgnoreCase("Hide Details")) {
+	             }else if (listOfOrders.get(i).getText().equalsIgnoreCase("Show Details")) {
+	                click(factory.retailOrderPage().listOfOrders.get(i));
+	             }
+	         }
 		logger.info("first order in list clicked");
 	}
 
