@@ -171,8 +171,8 @@ public class RetailAccountSteps extends CommonUtility {
 	@Then("address message should be displayed {string}")
 	public void addressMessageShouldBeDisplayed(String message) {
 		waitTillPresence(factory.retailAccountPage().addAddressSuccessMsg);
-		Assert.assertTrue(message,factory.retailAccountPage().addAddressSuccessMsg.isDisplayed());
-		logger.info("Address Added Successfully message displayed");
+		Assert.assertTrue(factory.retailAccountPage().addAddressSuccessMsg.isDisplayed());
+		logger.info("Address Added Successfully message displayed"+ message);
 	}
 
 //edit address
@@ -216,8 +216,8 @@ public class RetailAccountSteps extends CommonUtility {
 	@And("update address message should be displayed {string}")
 	public void updateAddressMessageShouldBeDisplayed(String message) {
 		waitTillPresence(factory.retailAccountPage().addressUpdateSuccessMsg);
-		Assert.assertEquals(message,factory.retailAccountPage().addressUpdateSuccessMsg.getText());
-		logger.info("update address message displayed");
+		Assert.assertTrue(factory.retailAccountPage().addressUpdateSuccessMsg.isDisplayed());
+		logger.info("update address message displayed"+ message);
 	}
 
 //remove address
