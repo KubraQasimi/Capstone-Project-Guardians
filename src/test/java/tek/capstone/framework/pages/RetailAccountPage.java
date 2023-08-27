@@ -15,7 +15,7 @@ public class RetailAccountPage extends BaseSetup {
 //update info
 	@FindBy(xpath = "//h1[@class='account__personal-title']")
 	public WebElement yourProfile;
-	@FindBy(id = "accountLink")
+	@FindBy(xpath = "//div//a[@id='accountLink']")
 	public WebElement accountLink;
 	@FindBy(id = "nameInput")
 	public WebElement nameInputField;
@@ -23,7 +23,7 @@ public class RetailAccountPage extends BaseSetup {
 	public WebElement phoneNoInputField;
 	@FindBy(id = "emailInput")
 	public WebElement emailInputField;
-	@FindBy(id = "personalUpdateBtn")
+	@FindBy(xpath = "//button[@id='personalUpdateBtn']")
 	public WebElement accountUpdateBtn;
 	@FindBy(xpath = "//div[text()='Personal Information Updated Successfully']")
 	public WebElement personalInfoUpdateMsg;
@@ -101,9 +101,9 @@ public class RetailAccountPage extends BaseSetup {
 //remove address
 	@FindBy(xpath="//div[@class='account__address-single'][1]")
 	public WebElement firstAddressBox;
-	@FindBy(xpath= "//div[@class='account__address-single']//button[text()='Remove']")
+	@FindBy(xpath= "//div//button[@class='account__address-btn' and text()='Remove']")
 	public WebElement RemoveAddressBtn;
-	@FindBy(xpath = "//div[@class='account__address-single']")
-	public WebElement addressBox;
+//	@FindBy(xpath = "//div[@data-id='8802']")
+//	public WebElement addressBox;
 
 }

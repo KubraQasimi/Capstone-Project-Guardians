@@ -230,9 +230,8 @@ public class RetailAccountSteps extends CommonUtility {
 
 	@Then("Address details should be removed")
 	public void addressDetailsShouldBeRemoved() {
-		if (!isElementDisplayed(factory.retailAccountPage().addressBox)) {
-			logger.info("address details removed");
-		}
+		Assert.assertNotNull(factory.retailAccountPage().firstAddressBox);
+		logger.info("address details removed");
 	}
 
 }

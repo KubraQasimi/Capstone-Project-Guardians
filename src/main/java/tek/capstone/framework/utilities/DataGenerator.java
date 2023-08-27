@@ -27,10 +27,13 @@ public class DataGenerator {
 	 }
 	 public static String getZipCode() {
 		 String zipcode ="";
-		 for (int i =0; i<6; i++) {
+		 for (int i =1; i<=5; i++) {
 			 zipcode += (int)(Math.random()*10);
 		 }
 		 return zipcode;
 	 }
+	 public static void main(String[] args) {
+		System.out.println(getZipCode());
+	}
 	
 }
