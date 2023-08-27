@@ -93,7 +93,7 @@ public class RetailAccountPage extends BaseSetup {
 //edit address
 	@FindBy(xpath = "//button[@class='account__address-btn' and text()='Edit'][1]")
 	public WebElement editAddressLink;
-	@FindBy(id = "addressBtn")
+	@FindBy(xpath = "//button[@id='addressBtn']")
 	public WebElement updateAddressBtn;
 	@FindBy(xpath = "//div[text()='Address Updated Successfully']")
 	public WebElement addressUpdateSuccessMsg;
