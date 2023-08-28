@@ -44,7 +44,7 @@ Feature: Retail Account Page​
     And User click on Add address option
     And user fill new address form with below information
       | country       | fullName     | phoneNumber | streetAddress | apt | city       | state           | zipCode |
-      | United States | Kubra Qasimi | phoneNumber |            55 |   3 | Alexandria | Howland Islands | zipcode |
+      | United States | Kubra Qasimi | phoneNumber |            55 |   3 | Alexandria | Virginia | zipcode |
     And User click Add Your Address button
     Then address message should be displayed 'Address Added Successfully'
 
@@ -53,7 +53,7 @@ Feature: Retail Account Page​
     And User click on edit address option
     And user fill new address form with below informations
       | country   | fullName     | phoneNumber | streetAddress | apt | city      | state | zipCode |
-      | United States | Kubra Qasimi | phoneNumber |            53 |   2 | Alexandria | Howland Islands   | zipcode |
+      | United States | Kubra Qasimi | phoneNumber |            53 |   2 | Alexandria | Virginia   | zipcode |
     And User click update Your Address button
     Then update address message should be displayed 'Address Updated Successfully'
 
