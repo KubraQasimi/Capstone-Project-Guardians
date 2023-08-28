@@ -188,7 +188,7 @@ public class RetailAccountSteps extends CommonUtility {
 
 		List<Map<String, String>> addressInfo = dataTable.asMaps(String.class, String.class);
 		for (int i = 0; i < addressInfo.size(); i++) {
-			sendText(factory.retailAccountPage().countryDropdown, addressInfo.get(0).get("country"));
+			selectByVisibleText(factory.retailAccountPage().countryDropdown, addressInfo.get(0).get("country"));
 			clearTextUsingSendKeys(factory.retailAccountPage().fullNameInput);
 			sendValueUsingJS(factory.retailAccountPage().fullNameInput, addressInfo.get(0).get("fullName"));
 			clearTextUsingSendKeys(factory.retailAccountPage().phoneNumberInput);
@@ -199,7 +199,7 @@ public class RetailAccountSteps extends CommonUtility {
 			sendValueUsingJS(factory.retailAccountPage().apartmentInput, addressInfo.get(0).get("apt"));
 			clearTextUsingSendKeys(factory.retailAccountPage().cityInput);
 			sendValueUsingJS(factory.retailAccountPage().cityInput, addressInfo.get(0).get("city"));
-			sendValueUsingJS(factory.retailAccountPage().stateField, addressInfo.get(0).get("state"));
+			selectByVisibleText(factory.retailAccountPage().stateField, addressInfo.get(0).get("state"));
 			clearTextUsingSendKeys(factory.retailAccountPage().zipCodeInput);
 			sendValueUsingJS(factory.retailAccountPage().zipCodeInput, DataGenerator.getZipCode());
 		}
@@ -208,16 +208,16 @@ public class RetailAccountSteps extends CommonUtility {
 
 	@And("User click update Your Address button")
 	public void userClickUpdateYourAddressButton() {
-//		scrollPageDownWithJS();
+		scrollPageDownWithJS();
 		click(factory.retailAccountPage().updateAddressBtn);
 		logger.info("update address button clicked successfully");
 	}
 
-	@And("update address message should be displayed {string}")
+	@And("update address message should be displayed 'Address Updated Successfully'")
 	public void updateAddressMessageShouldBeDisplayed(String message) {
 		waitTillPresence(factory.retailAccountPage().addressUpdateSuccessMsg);
-			Assert.assertTrue(message,factory.retailAccountPage().addressUpdateSuccessMsg.isDisplayed());
-			logger.info("update address message displayed ");
+			Assert.assertTrue(factory.retailAccountPage().addressUpdateSuccessMsg.isDisplayed());
+			logger.info("update address message displayed " + message);
 	}
 
 //remove address
