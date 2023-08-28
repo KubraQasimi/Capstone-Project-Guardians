@@ -149,13 +149,13 @@ public class RetailAccountSteps extends CommonUtility {
 	public void userFillNewAddressFormWithBelowInformation(DataTable dataTable) {
 		List<Map<String, String>> addressInfo = dataTable.asMaps(String.class, String.class);
 		for (int i = 0; i < addressInfo.size(); i++) {
-			sendText(factory.retailAccountPage().countryDropdown, addressInfo.get(0).get("country"));
+			selectByVisibleText(factory.retailAccountPage().countryDropdown, addressInfo.get(0).get("country"));
 			sendText(factory.retailAccountPage().fullNameInput, addressInfo.get(0).get("fullName"));
 			sendText(factory.retailAccountPage().phoneNumberInput, DataGenerator.getPhoneNumber());
 			sendText(factory.retailAccountPage().streetInput, addressInfo.get(0).get("streetAddress"));
 			sendText(factory.retailAccountPage().apartmentInput, addressInfo.get(0).get("apt"));
 			sendText(factory.retailAccountPage().cityInput, addressInfo.get(0).get("city"));
-			sendText(factory.retailAccountPage().stateField, addressInfo.get(0).get("state"));
+			selectByVisibleText(factory.retailAccountPage().stateField, addressInfo.get(0).get("state"));
 			sendText(factory.retailAccountPage().zipCodeInput, DataGenerator.getZipCode());
 
 		}
@@ -171,8 +171,8 @@ public class RetailAccountSteps extends CommonUtility {
 	@Then("address message should be displayed {string}")
 	public void addressMessageShouldBeDisplayed(String message) {
 		waitTillPresence(factory.retailAccountPage().addAddressSuccessMsg);
-		Assert.assertTrue(factory.retailAccountPage().addAddressSuccessMsg.isDisplayed());
-		logger.info("Address Added Successfully message displayed" + message);
+		Assert.assertTrue(message,factory.retailAccountPage().addAddressSuccessMsg.isDisplayed());
+		logger.info("Address Added Successfully message displayed");
 	}
 
 //edit address
@@ -213,11 +213,11 @@ public class RetailAccountSteps extends CommonUtility {
 		logger.info("update address button clicked successfully");
 	}
 
-	@And("update address message should be displayed 'Address Updated Successfully'")
+	@And("update address message should be displayed {string}")
 	public void updateAddressMessageShouldBeDisplayed(String message) {
 		waitTillPresence(factory.retailAccountPage().addressUpdateSuccessMsg);
-			Assert.assertTrue(factory.retailAccountPage().addressUpdateSuccessMsg.isDisplayed());
-			logger.info("update address message displayed " + message);
+			Assert.assertTrue(message,factory.retailAccountPage().addressUpdateSuccessMsg.isDisplayed());
+			logger.info("update address message displayed");
 	}
 
 //remove address
