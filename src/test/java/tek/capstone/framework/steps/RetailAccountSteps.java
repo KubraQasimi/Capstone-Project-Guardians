@@ -213,8 +213,8 @@ public class RetailAccountSteps extends CommonUtility {
 		logger.info("update address button clicked successfully");
 	}
 
-	@And("update address message should be displayed {string}")
-	public void updateAddressMessageShouldBeDisplayed(String message) {
+	@And("update address message should be displayed 'Address Updated Successfully'")
+	public void updateAddressMessageShouldBeDisplayed() {
 		waitTillPresence(factory.retailAccountPage().addressUpdateSuccessMsg);
 			Assert.assertTrue(factory.retailAccountPage().addressUpdateSuccessMsg.isDisplayed());
 			logger.info("update address message displayed ");
