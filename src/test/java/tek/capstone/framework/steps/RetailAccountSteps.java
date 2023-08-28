@@ -215,7 +215,7 @@ public class RetailAccountSteps extends CommonUtility {
 
 	@And("update address message should be displayed 'Address Updated Successfully'")
 	public void updateAddressMessageShouldBeDisplayed() {
-//		waitTillPresence(factory.retailAccountPage().addressUpdateSuccessMsg);
+		waitTillPresence(factory.retailAccountPage().addressUpdateSuccessMsg);
 			Assert.assertTrue(factory.retailAccountPage().addressUpdateSuccessMsg.isDisplayed());
 			logger.info("update address message displayed ");
 	}

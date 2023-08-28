@@ -53,7 +53,7 @@ Feature: Retail Account Page​
     And User click on edit address option
     And user fill new address form with below informations
       | country   | fullName     | phoneNumber | streetAddress | apt | city      | state | zipCode |
-      | United States | Kubra Qasimi | phoneNumber |            53 |   2 | Newcastle | NSW   | zipcode |
+      | United States | Kubra Qasimi | phoneNumber |            53 |   2 | Alexandria | Howland Islands   | zipcode |
     And User click update Your Address button
     Then update address message should be displayed 'Address Updated Successfully'
 
