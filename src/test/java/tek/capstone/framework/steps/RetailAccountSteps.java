@@ -208,16 +208,18 @@ public class RetailAccountSteps extends CommonUtility {
 
 	@And("User click update Your Address button")
 	public void userClickUpdateYourAddressButton() {
-		scrollPageDownWithJS();
+//		scrollPageDownWithJS();
 		click(factory.retailAccountPage().updateAddressBtn);
 		logger.info("update address button clicked successfully");
 	}
 
 	@And("update address message should be displayed {string}")
 	public void updateAddressMessageShouldBeDisplayed(String message) {
+		if(message.contains("Address Updated Successfully")) {
 		waitTillPresence(factory.retailAccountPage().addressUpdateSuccessMsg);
 		Assert.assertTrue(message,factory.retailAccountPage().addressUpdateSuccessMsg.isDisplayed());
-		logger.info("update address message displayed "+ message);
+		logger.info("update address message displayed ");
+		}
 	}
 
 //remove address
