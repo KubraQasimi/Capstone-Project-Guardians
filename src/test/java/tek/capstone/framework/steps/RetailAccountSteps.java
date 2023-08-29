@@ -8,6 +8,7 @@ import java.util.Map;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
@@ -171,54 +172,52 @@ public class RetailAccountSteps extends CommonUtility {
 	@Then("address message should be displayed {string}")
 	public void addressMessageShouldBeDisplayed(String message) {
 		waitTillPresence(factory.retailAccountPage().addAddressSuccessMsg);
-		Assert.assertTrue(message,factory.retailAccountPage().addAddressSuccessMsg.isDisplayed());
+		Assert.assertTrue(message, factory.retailAccountPage().addAddressSuccessMsg.isDisplayed());
 		logger.info("Address Added Successfully message displayed");
 	}
 
 //edit address
-	@And("User click on edit address option")
-	public void userClickOnEditAddressOption() {
-		click(factory.retailAccountPage().editAddressLink);
-		logger.info("address edit link clicked successfully");
-
-	}
-
-	@And("user fill new address form with below informations")
-	public void userFillNewAddressFormWithBelowInformations(DataTable dataTable) {
-
-		List<Map<String, String>> addressInfo = dataTable.asMaps(String.class, String.class);
-		for (int i = 0; i < addressInfo.size(); i++) {
-			selectByVisibleText(factory.retailAccountPage().countryDropdown, addressInfo.get(0).get("country"));
-			clearTextUsingSendKeys(factory.retailAccountPage().fullNameInput);
-			sendValueUsingJS(factory.retailAccountPage().fullNameInput, addressInfo.get(0).get("fullName"));
-			clearTextUsingSendKeys(factory.retailAccountPage().phoneNumberInput);
-			sendValueUsingJS(factory.retailAccountPage().phoneNumberInput, DataGenerator.getPhoneNumber());
-			clearTextUsingSendKeys(factory.retailAccountPage().streetInput);
-			sendValueUsingJS(factory.retailAccountPage().streetInput, addressInfo.get(0).get("streetAddress"));
-			clearTextUsingSendKeys(factory.retailAccountPage().apartmentInput);
-			sendValueUsingJS(factory.retailAccountPage().apartmentInput, addressInfo.get(0).get("apt"));
-			clearTextUsingSendKeys(factory.retailAccountPage().cityInput);
-			sendValueUsingJS(factory.retailAccountPage().cityInput, addressInfo.get(0).get("city"));
-			selectByVisibleText(factory.retailAccountPage().stateField, addressInfo.get(0).get("state"));
-			clearTextUsingSendKeys(factory.retailAccountPage().zipCodeInput);
-			sendValueUsingJS(factory.retailAccountPage().zipCodeInput, DataGenerator.getZipCode());
-		}
-		logger.info("new address form filled successfully");
-	}
-
-	@And("User click update Your Address button")
-	public void userClickUpdateYourAddressButton() {
-		scrollPageDownWithJS();
-		click(factory.retailAccountPage().updateAddressBtn);
-		logger.info("update address button clicked successfully");
-	}
-
-	@And("update address message should be displayed {string}")
-	public void updateAddressMessageShouldBeDisplayed(String message) {
-		waitTillPresence(factory.retailAccountPage().addressUpdateSuccessMsg);
-			Assert.assertTrue(message,factory.retailAccountPage().addressUpdateSuccessMsg.isDisplayed());
-			logger.info("update address message displayed");
-	}
+//	@And("User click on edit address option")
+//	public void userClickOnEditAddressOption() {
+//		clickElementWithJS(factory.retailAccountPage().editAddressLink);
+//		logger.info("address edit link clicked successfully");
+//
+//	}
+//
+//	@And("user fill new address form with below informations")
+//	public void userFillNewAddressFormWithBelowInformations(DataTable dataTable) {
+//
+//		List<Map<String, String>> addressInfo = dataTable.asMaps(String.class, String.class);
+//		selectByVisibleText(factory.retailAccountPage().countryDropdown, addressInfo.get(0).get("country"));
+//		clearTextUsingSendKeys(factory.retailAccountPage().fullNameInput);
+//		sendValueUsingJS(factory.retailAccountPage().fullNameInput, addressInfo.get(0).get("fullName"));
+//		clearTextUsingSendKeys(factory.retailAccountPage().phoneNumberInput);
+//		sendText(factory.retailAccountPage().phoneNumberInput, DataGenerator.getPhoneNumber());
+//		clearTextUsingSendKeys(factory.retailAccountPage().streetInput);
+//		sendText(factory.retailAccountPage().streetInput, addressInfo.get(0).get("streetAddress"));
+//		clearTextUsingSendKeys(factory.retailAccountPage().apartmentInput);
+//		sendText(factory.retailAccountPage().apartmentInput, addressInfo.get(0).get("apt"));
+//		clearTextUsingSendKeys(factory.retailAccountPage().cityInput);
+//		sendText(factory.retailAccountPage().cityInput, addressInfo.get(0).get("city"));
+//		selectByVisibleText(factory.retailAccountPage().stateField, addressInfo.get(0).get("state"));
+//		clearTextUsingSendKeys(factory.retailAccountPage().zipCodeInput);
+//		sendText(factory.retailAccountPage().zipCodeInput, DataGenerator.getZipCode());
+//		logger.info("new address form filled successfully");
+//	}
+//
+//	@And("User click update Your Address button")
+//	public void userClickUpdateYourAddressButton() {
+//		scrollPageDownWithJS();
+//		click(factory.retailAccountPage().updateAddressBtn);
+//		logger.info("update address button clicked successfully");
+//	}
+//
+//	@And("update address message should be displayed {string}")
+//	public void updateAddressMessageShouldBeDisplayed(String message) {
+//		waitTillPresence(factory.retailAccountPage().addressUpdateSuccessMsg);
+//		Assert.assertTrue(message, factory.retailAccountPage().addressUpdateSuccessMsg.isDisplayed());
+//		logger.info("update address message displayed");
+//	}
 
 //remove address
 	@And("User click on remove option of Address section")

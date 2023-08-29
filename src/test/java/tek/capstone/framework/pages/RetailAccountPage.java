@@ -91,7 +91,9 @@ public class RetailAccountPage extends BaseSetup {
 	public WebElement addAddressSuccessMsg;
 
 //edit address
-	@FindBy(xpath = "//button[@class='account__address-btn' and text()='Edit'][1]")
+	//button[text()='Edit']
+	//
+	@FindBy(xpath = "//button[@class='account__address-btn' and text()='Edit']")
 	public WebElement editAddressLink;
 	@FindBy(xpath = "//button[@id='addressBtn']")
 	public WebElement updateAddressBtn;

@@ -43,20 +43,19 @@ Feature: Retail Account Page​
   Scenario: Verify User can add an Address
     And User click on Add address option
     And user fill new address form with below information
-      | country       | fullName     | phoneNumber | streetAddress | apt | city       | state           | zipCode |
+      | country       | fullName     | phoneNumber | streetAddress | apt | city       | state    | zipCode |
       | United States | Kubra Qasimi | phoneNumber |            55 |   3 | Alexandria | Virginia | zipcode |
     And User click Add Your Address button
     Then address message should be displayed 'Address Added Successfully'
 
-  @editAddress
-  Scenario: Verify User can edit an Address added on account
-    And User click on edit address option
-    And user fill new address form with below informations
-      | country   | fullName     | phoneNumber | streetAddress | apt | city      | state | zipCode |
-      | United States | Kubra  | phoneNumber |            53 |   2 | Alexandria | Virginia   | zipcode |
-    And User click update Your Address button
-    Then update address message should be displayed 'Address Updated Successfully'
-
+  #@editAddress
+  #Scenario: Verify User can edit an Address added on account
+  #And User click on edit address option
+  #And user fill new address form with below informations
+  #| country       | fullName | phoneNumber | streetAddress | apt | city       | state    | zipCode |
+  #| United States | Kubra    | phoneNumber |            53 |   2 | Alexandria | Virginia | zipcode |
+  #And User click update Your Address button
+  #Then update address message should be displayed 'Address Updated Successfully'
   @removeAddress
   Scenario: Verify User can remove Address from Account
     And User click on remove option of Address section

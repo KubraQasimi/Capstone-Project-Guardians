@@ -68,6 +68,10 @@ public class CommonUtility extends BaseSetup{
         JavascriptExecutor executor = ((JavascriptExecutor) getDriver());
         executor.executeScript("arguments[0].value='" + value + "';", ele);
     }
+
+     public void clearTextJSExecutor(WebElement element) {
+         element.sendKeys(Keys.chord(Keys.CONTROL, "a"), Keys.DELETE);
+     }
     public void clearTextUsingSendKeys(WebElement toClear) {
         toClear.sendKeys(Keys.CONTROL + "a");
         toClear.sendKeys(Keys.DELETE);
